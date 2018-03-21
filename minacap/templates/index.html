@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Cap</title>
+</head>
+<body onload="display();">
+<img id='img' width="720" height="1280" src="">
+<script type="text/JavaScript">
+    var ws;
+    function display() {
+        ws = new WebSocket("ws://127.0.0.1:5000/img");
+        ws.onmessage = function (event) {
+            var data = event.data;
+            document.getElementById("img").src = "data:image/gif;base64," + data;
+        };
+    }
+</script>
+</body>
+</html>
